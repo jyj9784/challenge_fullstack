@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Running Challenge</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Running Challenge</h2>
+    
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <button onclick="addRunner()">Add Runner</button>
+    <button onclick="removeSelected()">Remove Selected</button>
+    
+    <table id="challengeTable">
+        <tr>
+            <th>Select</th>
+            <th>Name</th>
+            <th>10 min</th>
+            <th>20 min</th>
+            <th>30 min</th>
+            <th>40 min</th>
+            <th>50 min</th>
+        </tr>
+        <!-- Runner rows will be added here -->
+    </table>
+
+    <script>
+    function addRunner() {
+        var name = document.getElementById('name').value;
+        var table = document.getElementById('challengeTable');
+        
+        var row = table.insertRow(-1);
+        var cell1 = row.insertCell(0);
+        cell1.innerHTML = '<input type="checkbox">';
+        var cell2 = row.insertCell(1);
+        cell2.innerHTML = name;
+
+        for (var i = 2; i <= 6; i++) {
+            var cell = row.insertCell(i);
+            cell.innerHTML = '<input type="checkbox">';
+        }
+    }
+    
+    function removeSelected() {
+        var table = document.getElementById('challengeTable');
+        for (var i = table.rows.length - 1; i > 0; i--) {
+            if (table.rows[i].cells[0].children[0].checked) {
+                table.deleteRow(i);
+            }
+        }
+    }
+    </script>
+</body>
+</html>
