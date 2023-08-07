@@ -7,5 +7,6 @@ router.get('/:id', runnersController.show);
 router.post('/', runnersController.create);
 router.put('/:id', runnersController.update);
 router.delete('/:id', runnersController.delete);
+router.post('/:id/updatePoints', runnersController.updatePoints);
 
 module.exports = router;

@@ -6,10 +6,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false
       },
-      gender: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
       points: {
         type: DataTypes.INTEGER,
         allowNull: false,
